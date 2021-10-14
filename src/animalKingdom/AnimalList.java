@@ -24,4 +24,11 @@ public class AnimalList {
     }
   }
 
+  public void sortByName(boolean ascending) {
+    if (ascending) {
+      animalList.sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
+    } else {
+      animalList.sort((a, b) -> b.getName().compareToIgnoreCase(a.getName()));
+    }
+  }
 }
