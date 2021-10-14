@@ -48,5 +48,15 @@ public class Main {
     AnimalList.printList(animalsWithLungsNamedIn1758);
     animalsWithLungsNamedIn1758.getList().forEach((a) -> System.out.println(a.getYearNamed()));
 
+    System.out.println("\n*** Filter by lungs and egg laying");
+    AnimalList animalsWithLungsThatLayEggs = AnimalList.filterList(animalsWithLungs, (a) -> a.reproduce() == "eggs");
+    AnimalList.printList(animalsWithLungsThatLayEggs);
+    animalsWithLungsThatLayEggs.getList().forEach((a) -> System.out.println(a.reproduce()));
+
+    System.out.println("\n*** Filter by 1758");
+    AnimalList animals1758 = AnimalList.filterList(fullAnimalList, (a) -> a.getYearNamed() == 1758);
+    AnimalList.printList(animals1758);
+
+    System.out.println(fullAnimalList);
   }
 }

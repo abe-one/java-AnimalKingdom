@@ -5,10 +5,30 @@ import java.util.List;
 
 public class AnimalList {
   private List<AbstractAnimal> animalList = new ArrayList<>();
+  private String listString = "";
 
   public static void printList(AnimalList animalList) {
     animalList.getList().forEach((a) -> System.out.println(a));
+  }
 
+  public static void sortByMove(AnimalList animalList, boolean ascending) {
+    if (ascending) {
+      animalList.getList().sort((a, b) -> a.move().compareToIgnoreCase(b.move()));
+    } else {
+      animalList.getList().sort((a, b) -> b.move().compareToIgnoreCase(a.move()));
+    }
+  }
+
+  public static AnimalList filterList(AnimalList animalList, CheckAnimal tester) {
+    AnimalList filteredList = new AnimalList();
+
+    for (AbstractAnimal a : animalList.getList()) {
+      if (tester.test(a)) {
+        filteredList.add(a);
+      }
+    }
+
+    return filteredList;
   }
 
   public AnimalList(AbstractAnimal... animals) {
@@ -49,24 +69,21 @@ public class AnimalList {
     }
   }
 
-  public static void sortByMove(AnimalList animalList, boolean ascending) {
-    if (ascending) {
-      animalList.getList().sort((a, b) -> a.move().compareToIgnoreCase(b.move()));
-    } else {
-      animalList.getList().sort((a, b) -> b.move().compareToIgnoreCase(a.move()));
-    }
-  }
-
-  public static AnimalList filterList(AnimalList animalList, CheckAnimal tester) {
-    AnimalList filteredList = new AnimalList();
-
-    for (AbstractAnimal a : animalList.getList()) {
-      if (tester.test(a)) {
-        filteredList.add(a);
-      }
+  @Override
+  public String toString() {
+    if (animalList.size() == 0) {
+      return "[]";
     }
 
-    return filteredList;
+    listString = "[";
+
+    animalList.forEach((a) -> {
+      listString += "\nAnimals{id=" + a.getId() + ", name=" + a.getName() + ", yearNamed=" + a.getYearNamed() + "},";
+    });
+
+    listString = listString.substring(0, (listString.length() - 1)) + "]";
+
+    return listString;
   }
 
 }
