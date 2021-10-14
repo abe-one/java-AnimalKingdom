@@ -38,5 +38,15 @@ public class Main {
     System.out.println("\n*** Sort by move");
     AnimalList.sortByMove(fullAnimalList, true);
     fullAnimalList.getList().forEach((a) -> System.out.println(a + a.move()));
+
+    System.out.println("\n*** Filter by lungs");
+    AnimalList animalsWithLungs = AnimalList.filterList(fullAnimalList, (a) -> a.breathe() == "lungs");
+    AnimalList.printList(animalsWithLungs);
+
+    System.out.println("\n*** Filter by lungs and named in 1758");
+    AnimalList animalsWithLungsNamedIn1758 = AnimalList.filterList(animalsWithLungs, (a) -> a.getYearNamed() == 1758);
+    AnimalList.printList(animalsWithLungsNamedIn1758);
+    animalsWithLungsNamedIn1758.getList().forEach((a) -> System.out.println(a.getYearNamed()));
+
   }
 }

@@ -21,6 +21,10 @@ public class AnimalList {
     return animalList;
   }
 
+  public void add(AbstractAnimal animal) {
+    animalList.add(animal);
+  }
+
   public void sortByYear(boolean ascending) {
     if (ascending) {
       animalList.sort((a, b) -> Integer.compare(a.getYearNamed(), b.getYearNamed()));
@@ -53,12 +57,14 @@ public class AnimalList {
     }
   }
 
-  public static ArrayList<AbstractAnimal> filterByField(String... fields) {
-    ArrayList<AbstractAnimal> filteredList = new ArrayList<AbstractAnimal>();
+  public static AnimalList filterList(AnimalList animalList, CheckAnimal tester) {
+    AnimalList filteredList = new AnimalList();
 
-    // for (AbstractAnimal field : fields) {
-    // filteredList.fil;
-    // }
+    for (AbstractAnimal a : animalList.getList()) {
+      if (tester.test(a)) {
+        filteredList.add(a);
+      }
+    }
 
     return filteredList;
   }
