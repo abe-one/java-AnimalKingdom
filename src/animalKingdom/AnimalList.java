@@ -12,18 +12,16 @@ public class AnimalList {
     }
   }
 
-  public static List<AbstractAnimal> createList(AbstractAnimal... animals) {
-
-    List<AbstractAnimal> animalList = new ArrayList<>();
-
-    for (AbstractAnimal animal : animals) {
-      animalList.add(animal);
-    }
+  public List<AbstractAnimal> getList() {
     return animalList;
   }
 
-  public List<AbstractAnimal> getAnimals() {
-    return animalList;
+  public void sortByYear(boolean ascending) {
+    if (ascending) {
+      animalList.sort((a, b) -> Integer.compare(a.getYearNamed(), b.getYearNamed()));
+    } else {
+      animalList.sort((a, b) -> Integer.compare(b.getYearNamed(), a.getYearNamed()));
+    }
   }
 
 }

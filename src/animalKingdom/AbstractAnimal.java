@@ -35,6 +35,18 @@ abstract class AbstractAnimal {
     hunger = false;
   }
 
+  public int getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getYearNamed() {
+    return yearNamed;
+  }
+
   @Override
   public String toString() {
     return "Animals{id=" + id + ", name=" + name + ", yearNamed=" + yearNamed + "}";
