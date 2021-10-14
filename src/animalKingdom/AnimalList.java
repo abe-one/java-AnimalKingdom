@@ -6,6 +6,11 @@ import java.util.List;
 public class AnimalList {
   private List<AbstractAnimal> animalList = new ArrayList<>();
 
+  public static void printList(AnimalList animalList) {
+    animalList.getList().forEach((a) -> System.out.println(a));
+
+  }
+
   public AnimalList(AbstractAnimal... animals) {
     for (AbstractAnimal animal : animals) {
       animalList.add(animal);
@@ -31,4 +36,31 @@ public class AnimalList {
       animalList.sort((a, b) -> b.getName().compareToIgnoreCase(a.getName()));
     }
   }
+
+  public void sortByMove(boolean ascending) {
+    if (ascending) {
+      animalList.sort((a, b) -> a.move().compareToIgnoreCase(b.move()));
+    } else {
+      animalList.sort((a, b) -> b.move().compareToIgnoreCase(a.move()));
+    }
+  }
+
+  public static void sortByMove(AnimalList animalList, boolean ascending) {
+    if (ascending) {
+      animalList.getList().sort((a, b) -> a.move().compareToIgnoreCase(b.move()));
+    } else {
+      animalList.getList().sort((a, b) -> b.move().compareToIgnoreCase(a.move()));
+    }
+  }
+
+  public static ArrayList<AbstractAnimal> filterByField(String... fields) {
+    ArrayList<AbstractAnimal> filteredList = new ArrayList<AbstractAnimal>();
+
+    // for (AbstractAnimal field : fields) {
+    // filteredList.fil;
+    // }
+
+    return filteredList;
+  }
+
 }
