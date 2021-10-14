@@ -57,6 +57,5 @@ public class Main {
     AnimalList animals1758 = AnimalList.filterList(fullAnimalList, (a) -> a.getYearNamed() == 1758);
     AnimalList.printList(animals1758);
 
-    System.out.println(fullAnimalList);
   }
 }

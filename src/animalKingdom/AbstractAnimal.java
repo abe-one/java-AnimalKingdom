@@ -49,7 +49,7 @@ abstract class AbstractAnimal {
 
   @Override
   public String toString() {
-    return "Animals{id=" + id + ", name=" + name + ", yearNamed=" + yearNamed + "}";
+    return name + " " + reproduce() + " " + move() + " " + breathe() + " " + yearNamed;
   }
 
 }

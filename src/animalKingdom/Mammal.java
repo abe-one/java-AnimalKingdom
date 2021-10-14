@@ -18,6 +18,6 @@ public class Mammal extends AbstractAnimal {
 
   @Override
   public String reproduce() {
-    return "live birth";
+    return "live births";
   }
 }
