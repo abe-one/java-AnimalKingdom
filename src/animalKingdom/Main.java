@@ -25,19 +25,19 @@ public class Main {
         salmon, catfish, perch);
 
     System.out.println("\n*** Original full animal list");
-    AnimalList.printList(fullAnimalList);
+    System.out.println(fullAnimalList);
 
     System.out.println("\n*** Sort by year descending");
     fullAnimalList.sortByYear(false);
-    AnimalList.printList(fullAnimalList);
+    System.out.println(fullAnimalList);
 
     System.out.println("\n*** Sort alphabetically");
     fullAnimalList.sortByName(true);
-    AnimalList.printList(fullAnimalList);
+    System.out.println(fullAnimalList);
 
     System.out.println("\n*** Sort by move");
     AnimalList.sortByMove(fullAnimalList, true);
-    fullAnimalList.getList().forEach((a) -> System.out.println(a + a.move()));
+    System.out.println(fullAnimalList);
 
     System.out.println("\n*** Filter by lungs");
     AnimalList animalsWithLungs = AnimalList.filterList(fullAnimalList, (a) -> a.breathe() == "lungs");
@@ -46,12 +46,10 @@ public class Main {
     System.out.println("\n*** Filter by lungs and named in 1758");
     AnimalList animalsWithLungsNamedIn1758 = AnimalList.filterList(animalsWithLungs, (a) -> a.getYearNamed() == 1758);
     AnimalList.printList(animalsWithLungsNamedIn1758);
-    animalsWithLungsNamedIn1758.getList().forEach((a) -> System.out.println(a.getYearNamed()));
 
     System.out.println("\n*** Filter by lungs and egg laying");
     AnimalList animalsWithLungsThatLayEggs = AnimalList.filterList(animalsWithLungs, (a) -> a.reproduce() == "eggs");
     AnimalList.printList(animalsWithLungsThatLayEggs);
-    animalsWithLungsThatLayEggs.getList().forEach((a) -> System.out.println(a.reproduce()));
 
     System.out.println("\n*** Filter by 1758");
     AnimalList animals1758 = AnimalList.filterList(fullAnimalList, (a) -> a.getYearNamed() == 1758);
